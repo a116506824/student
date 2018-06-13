@@ -1,0 +1,62 @@
+<include file="public@header" />
+</head>
+<body>
+    <div class="wrap js-check-wrap">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="{:url('Student/index')}">{:lang('ADMIN_STUDENT_INDEX')}</a></li>
+            <li><a href="{:url('Student/add')}">{:lang('ADMIN_STUDENT_ADD')}</a></li>
+            <li><a href="{:url('Student/black')}">{:lang('ADMIN_STUDENT_BLACK')}</a></li>
+        </ul>
+        <form class="well form-inline margin-top-20" method="post" action="{:url('Student/index')}">
+            标题:
+            <input type="text" class="form-control" name="keyword" style="width: 200px;"
+                   value="{$keyword|default=''}" placeholder="请输入关键字">
+            <button class="btn btn-primary">搜索</button>
+        </form>
+        <form action="{:url('Student/index')}" method="post" class="margin-top-20">
+            <table class="table table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th width="40">ID</th>
+                        <th align="left">{:lang('ADMIN_STUDENT_NAME')}</th>
+                        <th align="left">{:lang('ADMIN_STUDENT_SEX')}</th>
+                        <th align="left">{:lang('ADMIN_STUDENT_BIRTHDAY')}</th>
+                        <th align="left">{:lang('ADMIN_STUDENT_HEIGHT')}</th>
+                        <th align="left">{:lang('ADMIN_STUDENT_PHONE')}</th>
+                        <th align="left">{:lang('ADMIN_STUDENT_SCHOOL')}</th>
+                        <th align="left">{:lang('ADMIN_STUDENT_DEPARTMENT')}</th>
+                        <th width="135">{:lang('ACTIONS')}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <foreach name="roles" item="vo">
+                    <tr>
+                        <td>{$vo.id}</td>
+                        <td>{$vo.ss_name}</td>
+                        <td>
+                    <if condition="$vo['ss_sex'] eq 1">
+                        {:lang('MALE')}
+                        <else /> 
+                        {:lang('FEMALE')}
+                    </if>
+                    </td>
+                    <td>{$vo.ss_birthday}</td>
+                    <td>{$vo.ss_height}</td>
+                    <td>{$vo.ss_phone}</td>
+                    <td>{$vo.school}</td>
+                    <td>{$vo.department}</td>
+                    <td>
+                        <a href="{:url('Student/edit',array('id'=>$vo['id']))}">{:lang('EDIT')}</a>
+                        <a href="{:url('Student/ban',array('id'=>$vo['id']))}">拉黑</a>
+                        <a href="{:url('Student/del',array('id'=>$vo['id']))}" class="js-ajax-delete">{:lang('DELETE')}</a>
+                    </td>
+                    </tr>
+                </foreach>
+                </tbody>
+            </table>
+            <ul class="pagination">{$page|default=''}</ul>
+        </form>
+    </div>
+    <script src="__STATIC__/js/admin.js"></script>
+</body>
+</html>

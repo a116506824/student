@@ -1,0 +1,78 @@
+<include file="public@header" />
+</head>
+<body>
+    <div class="wrap js-check-wrap">
+        <ul class="nav nav-tabs">
+            <li><a href="{:url('Order/index')}">{:lang('ADMIN_ORDER_INDEX')}</a></li>
+            <li class="active"><a href="{:url('Order/add')}">{:lang('ADMIN_ORDER_ADD')}</a></li>
+        </ul>
+        <form class="form-horizontal js-ajax-form margin-top-20" action="{:url('Order/addPost')}" method="post">
+            <div class="form-group">
+                <label for="input-add" class="col-sm-2 control-label"><span class="form-required">*</span>{:lang('ADMIN_EMPLOYMENT_NAME')}</label>
+                <select class="form-control" name="id" style="width: 140px;">
+                    <option value='0'>顶级</option>
+                    {$category_tree|default=''}
+                </select> 
+            </div>
+            <div class="form-group">
+                <label for="input-conacts" class="col-sm-2 control-label"><span class="form-required">*</span>{:lang('ADMIN_ORDER_POST')}</label>
+                <div class="col-md-6 col-sm-10">
+                    <input type="text" class="form-control" id="input-name" name="so_post">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="input-conacts" class="col-sm-2 control-label"><span class="form-required">*</span>{:lang('ADMIN_ORDER_STARTTIME')}</label>
+                <div class="col-md-6 col-sm-10">
+                    <input type="text" class="form-control js-bootstrap-datetime" name="so_starttime"
+                           value="{$so_starttime|default=''}"
+                           style="width: 140px;" autocomplete="off">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="input-conacts" class="col-sm-2 control-label"><span class="form-required">*</span>{:lang('ADMIN_ORDER_ENDTIME')}</label>
+                <div class="col-md-6 col-sm-10">
+                    <input type="text" class="form-control js-bootstrap-datetime" name="so_endtime"
+                           value="{$so_starttime|default=''}"
+                           style="width: 140px;" autocomplete="off">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="input-conacts" class="col-sm-2 control-label"><span class="form-required">*</span>{:lang('ADMIN_ORDER_COUNT')}</label>
+                <div class="col-md-6 col-sm-10">
+                    <input type="text" class="form-control" id="input-name" name="so_count">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="input-conacts" class="col-sm-2 control-label"><span class="form-required">*</span>{:lang('ADMIN_ORDER_LENGTH')}</label>
+                <div class="col-md-6 col-sm-10">
+                    <input type="text" class="form-control" id="input-name" name="so_length">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="input-conacts" class="col-sm-2 control-label"><span class="form-required">*</span>{:lang('ADMIN_ORDER_PRICE')}</label>
+                <div class="col-md-6 col-sm-10">
+                    <input type="text" class="form-control" id="input-name" name="so_price">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="input-conacts" class="col-sm-2 control-label"><span class="form-required">*</span>{:lang('ADMIN_ORDER_OTHER')}</label>
+                <div class="col-md-6 col-sm-10">
+                    <input type="text" class="form-control" id="input-name" name="so_other">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="input-conacts" class="col-sm-2 control-label"><span class="form-required">*</span>{:lang('ADMIN_ORDER_REMARK')}</label>
+                <div class="col-md-6 col-sm-10">
+                    <input type="text" class="form-control" id="input-name" name="so_remark">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-primary js-ajax-submit">{:lang('ADD')}</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="__STATIC__/js/admin.js"></script>
+</body>
+</html>

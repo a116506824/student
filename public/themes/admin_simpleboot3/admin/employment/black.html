@@ -1,0 +1,52 @@
+<include file="public@header" />
+</head>
+<body>
+    <div class="wrap js-check-wrap">
+        <ul class="nav nav-tabs">
+            <li><a href="{:url('Employment/index')}">{:lang('ADMIN_EMPLOYMENT_INDEX')}</a></li>
+            <li><a href="{:url('Employment/add')}">{:lang('ADMIN_EMPLOYMENT_ADD')}</a></li>
+            <li class="active"><a href="{:url('Employment/black')}">{:lang('ADMIN_EMPLOYMENT_BLACK')}</a></li>
+        </ul>
+        <form class="well form-inline margin-top-20" method="post" action="{:url('Employment/index')}">
+            标题:
+            <input type="text" class="form-control" name="keyword" style="width: 200px;"
+                   value="{$keyword|default=''}" placeholder="请输入关键字">
+            <button class="btn btn-primary">搜索</button>
+        </form>
+        <form action="{:url('Employment/index')}" method="post" class="margin-top-20">
+            <table class="table table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th width="40">ID</th>
+                        <th align="left">{:lang('ADMIN_EMPLOYMENT_NAME')}</th>
+                        <th align="left">{:lang('ADMIN_EMPLOYMENT_ADDRESS')}</th>
+                        <th align="left">{:lang('ADMIN_EMPLOYMENT_OPHONE')}</th>
+                        <th align="left">{:lang('ADMIN_EMPLOYMENT_SHOPPWNER')}</th>
+                        <th align="left">{:lang('ADMIN_EMPLOYMENT_SPHONE')}</th>
+                        <th width="135">{:lang('ACTIONS')}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <foreach name="roles" item="vo">
+                    <tr>
+                        <td>{$vo.id}</td>
+                        <td>{$vo.se_name}</td>
+                        <td>{$vo.se_address}</td>
+                        <td>{$vo.se_ophone}</td>
+                        <td>{$vo.se_shoppwner}</td>
+                        <td>{$vo.se_sphone}</td>
+                        <td>
+                            <a href="{:url('Employment/edit',array('id'=>$vo['id']))}">{:lang('EDIT')}</a>
+                            <a href="{:url('Employment/whi',array('id'=>$vo['id']))}">拉白</a>
+                            <a href="{:url('Employment/del',array('id'=>$vo['id']))}" class="js-ajax-delete">{:lang('DELETE')}</a>
+                        </td>
+                    </tr>
+                </foreach>
+                </tbody>
+            </table>
+            <ul class="pagination">{$page|default=''}</ul>
+        </form>
+    </div>
+    <script src="__STATIC__/js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<include file="public@header" />
+</head>
+<body>
+    <div class="wrap js-check-wrap">
+        <ul class="nav nav-tabs">
+            <li><a href="{:url('Student/index')}">{:lang('ADMIN_STUDENT_INDEX')}</a></li>
+            <li class="active"><a href="{:url('Student/add')}">{:lang('ADMIN_STUDENT_ADD')}</a></li>
+            <li><a href="{:url('Student/black')}">{:lang('ADMIN_STUDENT_BLACK')}</a></li>
+        </ul>
+        <form class="form-horizontal js-ajax-form margin-top-20" action="{:url('Student/addPost')}" method="post">
+            <div class="form-group">
+                <label for="input-add" class="col-sm-2 control-label"><span class="form-required">*</span>{:lang('ADMIN_STUDENT_NAME')}</label>
+                <div class="col-md-6 col-sm-10">
+                    <input type="text" class="form-control" id="input-name" name="ss_name">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="input-add" class="col-sm-2 control-label"><span class="form-required">*</span>{:lang('ADMIN_STUDENT_SEX')}</label>
+                <select class="form-control" name="ss_sex" style="width: 140px;">
+                    <option value='1'>{:lang('MALE')}</option>
+                    <option value='2'>{:lang('FEMALE')}</option>
+                </select> 
+            </div>
+            <div class="form-group">
+                <label for="input-add" class="col-sm-2 control-label"><span class="form-required">*</span>{:lang('ADMIN_STUDENT_BIRTHDAY')}</label>
+                <div class="col-md-6 col-sm-10">
+                    <input type="text" class="form-control js-bootstrap-datetime" name="ss_birthday"
+                           value="{$ss_phone|default=''}"
+                           style="width: 140px;" autocomplete="off">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="input-add" class="col-sm-2 control-label"><span class="form-required">*</span>{:lang('ADMIN_STUDENT_HEIGHT')}</label>
+                <div class="col-md-6 col-sm-10">
+                    <input type="text" class="form-control" id="input-name" name="ss_height">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="input-add" class="col-sm-2 control-label"><span class="form-required">*</span>{:lang('ADMIN_STUDENT_PHONE')}</label>
+                <div class="col-md-6 col-sm-10">
+                    <input type="text" class="form-control" id="input-name" name="ss_phone">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="input-add" class="col-sm-2 control-label"><span class="form-required">*</span>{:lang('ADMIN_STUDENT_DEPARTMENT')}</label>
+                <select class="form-control" name="category" style="width: 140px;">
+                    <option value='0'>顶级</option>
+                    {$de_category_tree|default=''}
+                </select> 
+            </div>
+            <div class="form-group">
+                <label for="input-add" class="col-sm-2 control-label"><span class="form-required">*</span>{:lang('ADMIN_STUDENT_ALIPAY')}</label>
+                <div class="col-md-6 col-sm-10">
+                    <input type="text" class="form-control" id="input-name" name="ss_alipay">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="input-add" class="col-sm-2 control-label"><span class="form-required">*</span>{:lang('ADMIN_STUDENT_WECHAT')}</label>
+                <div class="col-md-6 col-sm-10">
+                    <input type="text" class="form-control" id="input-name" name="ss_wechat">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="input-add" class="col-sm-2 control-label"><span class="form-required">*</span>{:lang('ADMIN_STUDENT_ASSESSMENT')}</label>
+                <div class="col-md-6 col-sm-10">
+                    <input type="text" class="form-control" id="input-name" name="ss_assessment">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="input-add" class="col-sm-2 control-label"><span class="form-required">*</span>{:lang('ADMIN_STUDENT_REMARK')}</label>
+                <div class="col-md-6 col-sm-10">
+                    <input type="text" class="form-control" id="input-name" name="ss_remark">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-primary js-ajax-submit">{:lang('ADD')}</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="__STATIC__/js/admin.js"></script>
+</body>
+</html>

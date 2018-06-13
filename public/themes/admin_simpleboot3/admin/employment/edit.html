@@ -1,0 +1,52 @@
+<include file="public@header" />
+</head>
+<body>
+    <div class="wrap js-check-wrap">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="{:url('Employment/index')}">{:lang('ADMIN_EMPLOYMENT_INDEX')}</a></li>
+            <li><a href="{:url('Employment/add')}">{:lang('ADMIN_EMPLOYMENT_ADD')}</a></li>
+            <li><a href="{:url('Employment/black')}">{:lang('ADMIN_EMPLOYMENT_BLACK')}</a></li>
+        </ul>
+        <form class="form-horizontal js-ajax-form margin-top-20" action="{:url('Employment/editPost')}" method="post">
+            <input style="display: none" name="id" value="{$data.id}">
+            <div class="form-group">
+                <label for="input-conacts" class="col-sm-2 control-label"><span class="form-required">*</span>{:lang('ADMIN_EMPLOYMENT_NAME')}</label>
+                <div class="col-md-6 col-sm-10">
+                    <input type="text" class="form-control" id="input-name" name="se_name" value="{$data.se_name}">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="input-conacts" class="col-sm-2 control-label"><span class="form-required">*</span>{:lang('ADMIN_EMPLOYMENT_ADDRESS')}</label>
+                <div class="col-md-6 col-sm-10">
+                    <input type="text" class="form-control" id="input-name" name="se_address" value="{$data.se_address}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="input-conacts" class="col-sm-2 control-label"><span class="form-required">*</span>{:lang('ADMIN_EMPLOYMENT_OPHONE')}</label>
+                <div class="col-md-6 col-sm-10">
+                    <input type="text" class="form-control" id="input-name" name="se_ophone" value="{$data.se_ophone}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="input-conacts" class="col-sm-2 control-label"><span class="form-required">*</span>{:lang('ADMIN_EMPLOYMENT_SHOPPWNER')}</label>
+                <div class="col-md-6 col-sm-10">
+                    <input type="text" class="form-control" id="input-name" name="se_shoppwner" value="{$data.se_shoppwner}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="input-conacts" class="col-sm-2 control-label"><span class="form-required">*</span>{:lang('ADMIN_EMPLOYMENT_SPHONE')}</label>
+                <div class="col-md-6 col-sm-10">
+                    <input type="text" class="form-control" id="input-name" name="se_sphone" value="{$data.se_sphone}">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-primary js-ajax-submit">{:lang('ADD')}</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="__STATIC__/js/admin.js"></script>
+</body>
+</html>

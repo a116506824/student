@@ -1,0 +1,58 @@
+<include file="public@header" />
+</head>
+<body>
+    <div class="wrap js-check-wrap">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="{:url('Order/index')}">{:lang('ADMIN_ORDER_INDEX')}</a></li>
+            <li><a href="{:url('Order/add')}">{:lang('ADMIN_ORDER_ADD')}</a></li>
+        </ul>
+        <form class="well form-inline margin-top-20" method="post" action="{:url('Order/index')}">
+            标题:
+            <input type="text" class="form-control" name="keyword" style="width: 200px;"
+                   value="{$keyword|default=''}" placeholder="请输入关键字">
+            <button class="btn btn-primary">搜索</button>
+        </form>
+        <form action="{:url('Order/index')}" method="post" class="margin-top-20">
+            <table class="table table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th width="40">ID</th>
+                        <th align="left">{:lang('ADMIN_EMPLOYMENT_NAME')}</th>
+                        <th align="left">{:lang('ADMIN_ORDER_POST')}</th>
+                        <th align="left">{:lang('ADMIN_ORDER_STARTTIME')}</th>
+                        <th align="left">{:lang('ADMIN_ORDER_ENDTIME')}</th>
+                        <th align="left">{:lang('ADMIN_ORDER_COUNT')}</th>
+                        <th align="left">{:lang('ADMIN_ORDER_LENGTH')}</th>
+                        <th align="left">{:lang('ADMIN_ORDER_PRICE')}</th>
+                        <th align="left">{:lang('ADMIN_ORDER_OTHER')}</th>
+                        <th align="left">{:lang('ADMIN_ORDER_REMARK')}</th>
+                        <th width="135">{:lang('ACTIONS')}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <foreach name="roles" item="vo">
+                    <tr>
+                        <td>{$vo.id}</td>
+                        <td>{$vo.emname}</td>
+                        <td>{$vo.so_post}</td>
+                        <td>{$vo.so_starttime}</td>
+                        <td>{$vo.so_endtime}</td>
+                        <td>{$vo.so_count}</td>
+                        <td>{$vo.so_length}</td>
+                        <td>{$vo.so_price}</td>
+                        <td>{$vo.so_other}</td>
+                        <td>{$vo.so_remark}</td>
+                        <td>
+                            <a href="{:url('Order/edit',array('id'=>$vo['id']))}">{:lang('EDIT')}</a>
+                            <a href="{:url('Order/deletePost',array('id'=>$vo['id']))}" class="js-ajax-delete">{:lang('DELETE')}</a>
+                        </td>
+                    </tr>
+                </foreach>
+                </tbody>
+            </table>
+            <ul class="pagination">{$page|default=''}</ul>
+        </form>
+    </div>
+    <script src="__STATIC__/js/admin.js"></script>
+</body>
+</html>
